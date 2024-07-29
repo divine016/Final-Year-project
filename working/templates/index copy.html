@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phishing Detection Tool</title>
+    .main-index {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background-color: #f0f0f0;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        max-width: 600px;
+        width: 100%;
+        padding: 20px;
+    }
+
+    .logo {
+        width: 150px;
+        height: auto;
+        margin-bottom: 20px;
+    }
+
+    .search-bar {
+        width: 100%;
+        max-width: 600px;
+        margin-bottom: 20px;
+    }
+
+    .search{
+        display: flex;
+    }
+    .search button {
+        padding: 12px;
+        width: 200px;
+        background-color: #8ec7ca;
+        border: none;
+    }
+    .search button:hover {
+        background-color: #0286AD;
+    }
+    .search-bar input {
+        width: 100%;
+        padding: 12px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    .content-image {
+        width: 100%;
+        max-width: 200px;
+        height: auto;
+        margin-bottom: 20px;
+    }
+
+    .content-text {
+        text-align: center;
+        color: #333;
+        font-size: 16px;
+        line-height: 1.5;
+    }
+</head>
+<body>
+    <main class="main-index">
+        <div class="container">
+            <img src="images/logo.png" alt="Logo" class="logo">
+            <form action="/predict" method="post" class="search-bar">
+                <label for="urlInput">Enter URL:</label>
+                <div class="search">
+                    <input type="text" id="urlInput" name="urlInput" required>
+                    <button type="submit">Check URL</button>
+                </div>
+                
+            </form>
+            {% if result %}
+                <p>{{ result }}</p>
+            {% endif %}
+        
+            <img src="images/Group 2 (1).png" alt="Content Image" class="content-image">
+            <p class="content-text">
+                Protect Yourself from Phishing Attacks <br>
+        Don't be a victim! Enter a URL to check if it's safe <br>before you click and get Instant Peace of Mind
+            </p>
+        </div>
+    </main>
+   
+</body>
+</html>

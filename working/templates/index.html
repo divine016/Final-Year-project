@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phishing Detection Tool</title>
+    <link rel="stylesheet" href="css/card.css">
+
+    {% if redirect_to %}
+    <meta http-equiv="refresh" content="4;url={{ redirect_to }}">
+    {% endif %}
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .main-index {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 600px;
+            width: 100%;
+            padding: 20px;
+        }
+
+        .logo {
+            width: 150px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        .search-bar {
+            width: 100%;
+            max-width: 600px;
+            margin-bottom: 20px;
+        }
+
+        .search {
+            display: flex;
+        }
+
+        .search button {
+            padding: 12px;
+            width: 200px;
+            background-color: #8ec7ca;
+            border: none;
+        }
+
+        .search button:hover {
+            background-color: #0286AD;
+        }
+
+        .search-bar input {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .content-image {
+            width: 100%;
+            max-width: 200px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        .content-text {
+            text-align: center;
+            color: #333;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .result-phishing {
+            border: red 1px solid;
+            padding: 10px 20px;
+            background-color: rgba(196, 69, 69, 0.2);
+            border-radius: 10px;
+            width: 70%;
+        }
+
+        .result-legit {
+            border: green 1px solid;
+            padding: 10px 20px;
+            background-color: rgba(69, 196, 69, 0.2);
+            border-radius: 10px;
+            width: 70%;
+        }
+        .good{
+            margin: 20px;
+        }
+
+        .good a{
+            padding: 10px 30px;
+            text-decoration: none;
+            background-color: #8ec7ca;
+           
+            color: #000;
+            font-weight: bold;
+            font-size: medium;
+        }
+        .good a:hover {
+            background-color: #0286AD;
+        }
+        .good-redirect{
+            margin-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="logo"><a href="/"><img src="images/logo.png" alt=""></a></div>
+        <ul class="nav-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About Us</a></li>
+            <li><a href="/learn">Learn more about Phishing</a></li>
+
+        </ul>
+        <div class="burger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+    </nav>
+    <main class="main-index">
+        <div class="container">
+            <img src="images/logo.png" alt="Logo" class="logo">
+            <form action="/predict" method="post" class="search-bar">
+                <label for="urlInput">Enter URL:</label>
+                <div class="search">
+                    <input type="text" id="urlInput" name="urlInput" required>
+                    <button type="submit">Check URL</button>
+                </div>
+
+            </form>
+            {% if result %}
+            <p>The URL {{ url }}</p>
+            <p class="{{ result_class }}">{{ result }}</p>
+            <div class="good">
+                <p>Do you wish to learn more about Phishing?</p>
+                <div class="good-redirect">
+                    <a href="/">No</a>
+                    <a href="/learn">Yes</a>
+                </div>
+              
+            </div>
+            <a></a>
+            {% endif %}
+
+            <img src="images/Group 2 (1).png" alt="Content Image" class="content-image">
+            <p class="content-text">
+                Protect Yourself from Phishing Attacks <br>
+                Don't be a victim! Enter a URL to check if it's safe <br>before you click and get Instant Peace of Mind
+            </p>
+        </div>
+    </main>
+    <div class="main-footer">
+        <footer class="footer">
+            <div class="footer-logo"><img src="images/logo.png" alt=""></div>
+            <div class="footer-content">
+                <div class="footer-contact">
+                    <p>Contact Us</p>
+                    <p>Email: koutidivine@gmail.com</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#">Eduphish © 2024, All Rights Reserved</a>
+                </div>
+            </div>
+            <div></div>
+        </footer>
+    </div>
+    <script>
+        const navSlide = () => {
+            const burger = document.querySelector('.burger');
+            const nav = document.querySelector('.nav-links');
+            const navLinks = document.querySelectorAll('.nav-links li');
+
+            burger.addEventListener('click', () => {
+                // Toggle Nav
+                nav.classList.toggle('nav-active');
+
+                // Animate Links
+                navLinks.forEach((link, index) => {
+                    if (link.style.animation) {
+                        link.style.animation = '';
+                    } else {
+                        link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`;
+                    }
+                });
+
+                // Burger Animation
+                burger.classList.toggle('toggle');
+            });
+        }
+
+        navSlide();
+    </script>
+</body>
+
+</html>

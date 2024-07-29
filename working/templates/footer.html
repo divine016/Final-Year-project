@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Footer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .main-footer {
+            font-family: Arial, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .content {
+            flex: 1;
+        }
+
+        .footer {
+            background-color: #CAF4F7;
+            color: #222;
+            padding: 2rem;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .footer-logo img{
+            width: 180px;
+            font-weight: bold;
+        }
+
+        .footer-content {
+            text-align: center;
+        }
+
+        .footer-contact {
+            margin-bottom: 1rem;
+        }
+
+        .footer-links a {
+            color: #333;
+            text-decoration: none;
+            margin: 0 0.5rem;
+        }
+
+        @media screen and (max-width: 768px) {
+            .footer {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-logo {
+                margin-bottom: 1rem;
+            }
+
+            .footer-content {
+                margin-top: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+   <main class="main-footer">
+    <footer class="footer">
+        <div class="footer-logo"><img src="images/logo.png" alt=""></div>
+        <div class="footer-content">
+            <div class="footer-contact">
+                <p>Contact Us</p>
+                <p>Email: koutidivine@gmail.com</p>
+            </div>
+            <div class="footer-links">
+                <a href="#">Eduphish © 2024, All Rights Reserved</a>
+            </div>
+        </div>
+        <div></div>
+    </footer>
+   </main>
+
+
+</body>
+</html>
