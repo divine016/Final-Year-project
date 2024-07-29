@@ -1,0 +1,23 @@
+*{
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+main{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    height: 100vh;
+    padding: 50px 200px;
+}
+#heading {
+    color: #0286AD;
+  
+}
+p{
+    text-align: center;
+    margin: 20px;
+   
+}
