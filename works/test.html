@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phishing Detection Tool</title>
+    <script>
+        async function checkURL() {
+            document.getElementById('result').innerText = 'i reached this part';
+            const url = document.getElementById('urlInput').value;
+            const response = await fetch(`http://127.0.0.1:8000/docs#/default/${encodeURIComponent(url)}`); 
+            const result = await response.json();
+            document.getElementById('result').innerText = `Result: ${result.result}`;
+        }
+    </script>
+</head>
+<body>
+    <h1>Phishing Detection Tool</h1>
+    <form onsubmit="event.preventDefault(); checkURL();">
+        <label for="urlInput">Enter URL:</label>
+        <input type="text" id="urlInput" name="urlInput" required>
+        <button type="submit">Check URL</button>
+    </form>
+    <p id="result"></p>
+    <p id="result12"></p>
+</body>
+</html>
